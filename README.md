@@ -1,4 +1,4 @@
-# Study Dashboard
+# Study
 
 This project is written based on the course React with [Hello Roman](https://www.youtube.com/channel/UCq8XmOMtrUCb8FcFHQEd8_g)
 
