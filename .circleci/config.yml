@@ -23,8 +23,23 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # run tests!
-      # - run: npm run test
+    deploy:
+      machine:
+        macos:
+          xcode: '9.0'
+      steps:
+        - run:
+            command: curl -X POST -d {} ${ci_cd}
 
-      - run: npm run build
-      - run: npm run netlify:deploy
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: main
+      - deploy:
+          filters:
+            branches:
+              only: main
