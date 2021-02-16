@@ -19,13 +19,13 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-    deploy:
-      machine:
-        macos:
-          xcode: '9.0'
-      steps:
-        - run:
-            command: curl -X POST -d {} ${ci_cd}
+  deploy:
+    machine:
+      macos:
+        xcode: '9.0'
+    steps:
+      - run:
+          command: curl -X POST -d {} ${endpoint}
 
 
 workflows:
