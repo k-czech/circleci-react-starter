@@ -14,14 +14,16 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
 
-      - run: sudo npm install
+      - run: npm install
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: sudo npm run netlify:deploy
+      - run: npm run build
+        -
+      - run: npm run netlify:deploy
 
 workflows:
   version: 2
