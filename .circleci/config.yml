@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: node:14.15.5
+      - image: node:lts
 
     working_directory: ~/repo
 
@@ -21,8 +21,24 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-#      - run: npm run test
+  deploy:
+    machine:
+      macos:
+        xcode: '9.0'
+    steps:
+      - run:
+          command: curl -X POST -d {} ${endpoint}
 
-      - run: npm run build
 
-      - run: npm run netlify:deploy
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: main
+      - deploy:
+          filters:
+            branches:
+              only: main
