@@ -1,6 +1,28 @@
-# Study
+# CircleCI React Starter
 
-This project is written based on the course React with [Hello Roman](https://www.youtube.com/channel/UCq8XmOMtrUCb8FcFHQEd8_g)
+This package is the Continuous Integration full configure. It is starter template using Raact library (Create React App).
+
+How to configure Continuous Delivery using Netlify?
+
+Netlify:
+```shell
+1. Go to settings > build & deploy and scroll down to build hooks.
+2. Click in Add build Hook
+3. Write a descriptive name to your build and save it.
+4. Copy the url that was generated on save. Paste it somewhere because we'll need it later.
+```
+
+Configure an environment variable in CircleCI:
+```shell
+1. Go to your CircleCI app.
+2. Click in Jobs.
+3. Click in the settings icon next to your project's name.
+4. We entered the settings of that specific Job. Click where it says Environment Variables.
+5. Click in Add Variable
+6. We'll give it a descriptive name like awesome_endpoint and in the value paste that endpoint url I told you to save previously.
+7. Click in Add Variable again.
+```
+Almost done ;)
 
 ## 🚀 Quick Start
 
@@ -19,10 +41,10 @@ This project is written based on the course React with [Hello Roman](https://www
 
 ## 📦 What's inside?
 * React
-* React Router
 * Prettier and ESLint
-* Styled Components
-* Axios
+* CircleCI
+* Netlify CLI
+* Husky and Lintstaged
 
 ---
 
@@ -83,6 +105,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```shell
+npm run netlify:deploy
+```
